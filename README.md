@@ -133,4 +133,115 @@ Your submission will be evaluated based on:
 3. Push your changes and create a Pull Request to the `main` branch,
 4. Your submission will be evaluated and you will receive feedback via email,
 
-Good luck! 🚀
+Good luck!
+
+---
+
+## Implementation Documentation
+
+This repository implements the case study using NestJS, TypeScript, PostgreSQL, Prisma, JWT authentication, and Argon2 password hashing.
+
+Full API examples and database notes are documented in [IMPLEMENTATION.md](./IMPLEMENTATION.md).
+
+### Implemented Features
+
+- Register and authenticate users
+- Create, read, update, and delete tasks
+- Assign tasks to user-owned categories
+- Filter tasks by status, priority, category, and title search
+- Protect routes with JWT authentication
+- Enforce authorization so users can only manage their own tasks and categories
+- Validate request payloads and query parameters
+- Return consistent error responses
+- Provide Swagger/OpenAPI documentation
+
+### Environment Variables
+
+Create a `.env` file from `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
+Required variables:
+
+```env
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/task_management?schema=public"
+JWT_SECRET="replace-with-a-long-random-secret"
+JWT_EXPIRES_IN="1h"
+PORT=3000
+```
+
+### Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start PostgreSQL with Docker:
+
+```bash
+docker compose up -d
+```
+
+Generate the Prisma client:
+
+```bash
+npm run prisma:generate
+```
+
+Run database migrations:
+
+```bash
+npm run prisma:migrate
+```
+
+### Run
+
+Start the API in development mode:
+
+```bash
+npm run start:dev
+```
+
+The API runs at:
+
+```txt
+http://localhost:3000/api
+```
+
+Swagger documentation is available at:
+
+```txt
+http://localhost:3000/api/docs
+```
+
+### Tests
+
+Run the test suite:
+
+```bash
+npm test
+```
+
+Run test coverage:
+
+```bash
+npm run test:cov
+```
+
+### Database
+
+The Prisma schema is located at:
+
+```txt
+prisma/schema.prisma
+```
+
+The initial migration is located at:
+
+```txt
+prisma/migrations/20260714000000_init/migration.sql
+```
