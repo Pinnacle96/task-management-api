@@ -102,6 +102,26 @@ Run coverage:
 npm run test:cov
 ```
 
+Run API integration tests:
+
+```bash
+npm run test:e2e
+```
+
+## Verification
+
+Run the full verification set:
+
+```bash
+npm run build
+npm test
+npm run test:e2e
+npm run test:cov
+npm run lint
+npx prisma validate
+npm audit --omit=dev
+```
+
 ## API Overview
 
 All task and category routes require:

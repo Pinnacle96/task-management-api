@@ -323,7 +323,25 @@ npm run test:cov
 
 Current tests cover business logic in auth, users, categories, and tasks services. Service-level coverage is above the requested 70% bonus threshold.
 
-Note: Unit tests are implemented for business logic. Integration tests for API endpoints are a listed bonus item in the original brief and can be added as a further improvement.
+Run API integration tests:
+
+```bash
+npm run test:e2e
+```
+
+## Verification
+
+These commands were used to verify the project before submission:
+
+```bash
+npm run build
+npm test
+npm run test:e2e
+npm run test:cov
+npm run lint
+npx prisma validate
+npm audit --omit=dev
+```
 
 ## Useful Commands
 
@@ -331,8 +349,11 @@ Note: Unit tests are implemented for business logic. Integration tests for API e
 npm run build
 npm run start:dev
 npm test
+npm run test:e2e
 npm run test:cov
 npm run lint
+npx prisma validate
+npm audit --omit=dev
 npm run prisma:generate
 npm run prisma:migrate
 npm run prisma:deploy
